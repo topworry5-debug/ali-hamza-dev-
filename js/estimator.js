@@ -1,6 +1,6 @@
 /**
  * ALI HAMZA PORTFOLIO - INTERACTIVE PROJECT SCOPE & COST ESTIMATOR
- * Calculates estimated budget, timeline, and builds an instant WhatsApp order link
+ * Launch Pricing Configuration - Transparent Budget & Timeline Calculator
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,38 +21,54 @@ function initCostEstimator() {
 
   if (!priceDisplay) return;
 
-  // Base Service Prices & Days (Competitive & Transparent)
+  // Tiered Pricing per Service (Introductory Launch Rates)
   const serviceConfig = {
-    'web-dev': { name: 'Custom Web Application', basePrice: 280, baseDays: 5 },
-    'ai-auto': { name: 'AI Workflow Automation', basePrice: 320, baseDays: 4 },
-    'whatsapp-bot': { name: 'WhatsApp AI Chatbot', basePrice: 260, baseDays: 4 },
-    'full-funnel': { name: 'Landing Page + SEO + Bot', basePrice: 450, baseDays: 7 }
+    'web-dev': {
+      name: 'Custom Website Development',
+      tiers: { 'starter': 80, 'business': 160, 'enterprise': 350 },
+      baseDays: 4
+    },
+    'ai-auto': {
+      name: 'Business & AI Automation',
+      tiers: { 'starter': 150, 'business': 220, 'enterprise': 400 },
+      baseDays: 4
+    },
+    'whatsapp-bot': {
+      name: 'WhatsApp & Conversational Bot',
+      tiers: { 'starter': 70, 'business': 120, 'enterprise': 300 },
+      baseDays: 3
+    },
+    'full-funnel': {
+      name: 'High-Converting Landing Page',
+      tiers: { 'starter': 60, 'business': 90, 'enterprise': 280 },
+      baseDays: 3
+    }
   };
 
-  // Scope Multipliers
+  // Scope Metadata & Timeline Modifiers
   const scopeConfig = {
-    'starter': { name: 'Starter Tier (1-3 Pages/Workflows)', multiplier: 1.0, extraDays: 0 },
-    'business': { name: 'Business Tier (4-8 Pages/Workflows)', multiplier: 1.6, extraDays: 3 },
-    'enterprise': { name: 'Enterprise Tier (Full Stack & Scale)', multiplier: 2.4, extraDays: 6 }
+    'starter': { name: 'Starter Tier (1-3 Pages/Workflows)', extraDays: 0 },
+    'business': { name: 'Business Tier (4-8 Pages/Workflows)', extraDays: 2 },
+    'enterprise': { name: 'Enterprise Custom Suite (Full Stack & Scale)', extraDays: 5 }
   };
 
-  // Addon Prices & Days
+  // Addon Prices (Discounted Launch Pricing) & Timelines
   const addonConfig = {
-    'openai-api': { name: 'OpenAI GPT-4o Integration', price: 90, days: 1 },
-    'crm-sync': { name: 'HubSpot / CRM Live Sync', price: 75, days: 1 },
-    'schema-seo': { name: 'AEO / GEO Schema Rich Snippets', price: 60, days: 1 },
-    'admin-panel': { name: 'Custom Admin Dashboard', price: 140, days: 2 },
-    'rush-delivery': { name: 'Priority 48-Hour Rush Delivery', price: 110, days: -2 }
+    'openai-api': { name: 'OpenAI GPT-4o Integration', price: 40, days: 1 },
+    'crm-sync': { name: 'HubSpot / Google Sheets Live Sync', price: 35, days: 1 },
+    'schema-seo': { name: 'AEO / GEO Schema Rich Snippets', price: 25, days: 1 },
+    'admin-panel': { name: 'Custom Admin Dashboard', price: 70, days: 2 },
+    'rush-delivery': { name: 'Priority Rush Delivery (as fast as 3 days)', price: 50, days: -1 }
   };
 
   let selectedService = 'web-dev';
   let selectedScope = 'starter';
 
   function recalculate() {
-    const srv = serviceConfig[selectedService];
-    const scp = scopeConfig[selectedScope];
+    const srv = serviceConfig[selectedService] || serviceConfig['web-dev'];
+    const scp = scopeConfig[selectedScope] || scopeConfig['starter'];
 
-    let totalPrice = Math.round(srv.basePrice * scp.multiplier);
+    let totalPrice = srv.tiers[selectedScope] || srv.tiers['starter'];
     let totalDays = srv.baseDays + scp.extraDays;
     const selectedAddonNames = [];
 
@@ -71,7 +87,7 @@ function initCostEstimator() {
       }
     });
 
-    if (totalDays < 2) totalDays = 2; // safety minimum
+    if (totalDays < 3) totalDays = 3; // Safe minimum turnaround
 
     // Update UI elements
     priceDisplay.textContent = `$${totalPrice} USD`;
@@ -88,13 +104,13 @@ function initCostEstimator() {
     // Build WhatsApp Pre-filled payload with real WhatsApp number
     const phone = '923072538314'; // Ali Hamza Real WhatsApp number
     const waMessage = 
-`👋 Hello Ali Hamza! I configured a custom project estimate on your portfolio website:
+`👋 Hello Ali Hamza! I configured a custom project estimate on your portfolio website (Launch Pricing):
 
 🚀 *Service:* ${srv.name}
 📦 *Scope:* ${scp.name}
 ✨ *Add-ons:* ${selectedAddonNames.length ? selectedAddonNames.join(', ') : 'None'}
-💰 *Estimated Budget:* $${totalPrice} USD
-⏱️ *Estimated Timeline:* ~${totalDays} Days
+💰 *Estimated Budget:* $${totalPrice} USD (Launch Rate)
+⏱️ *Estimated Timeline:* ~${totalDays} Business Days
 
 Can we discuss starting this project?`;
 

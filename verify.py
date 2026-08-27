@@ -77,6 +77,11 @@ def verify_portfolio():
         "Project WebApp Image": 'src="./assets/images/project-webapp.png"' in html,
         "Project Landing Image": 'src="./assets/images/project-landing.png"' in html,
         "Estimator Section Present": 'id="estimator"' in html,
+        "Launch Pricing Badges Present": html.count('🚀 Launch Pricing — Limited to my first 10 clients') >= 2,
+        "Local Pakistan PKR Pricing Banner": 'Local clients in Pakistan:' in html and 'PKR pricing' in html,
+        "Unlimited Revisions Guarantee Present": "Unlimited revisions until you're happy with the result" in html,
+        "Safe Rush Delivery Window": "Priority Rush Delivery (as fast as 3 days, subject to project scope)" in html,
+        "No Generic LinkedIn/GitHub Placeholders in Contact": 'href="https://linkedin.com"' not in html and 'href="https://github.com"' not in html,
         "Why Work With Me Commitment Section": 'id="commitment"' in html,
         "FAQ Section Present": 'id="faq"' in html,
     }
