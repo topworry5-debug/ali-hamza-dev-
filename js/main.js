@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initBackToTop();
   initSkillsFilter();
+  initHeroTypewriter();
 });
 
 /* --------------------------------------------------------------------------
@@ -288,3 +289,55 @@ function initBackToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+
+/* --------------------------------------------------------------------------
+   10. HERO TYPEWRITER ANIMATION
+   -------------------------------------------------------------------------- */
+function initHeroTypewriter() {
+  const textEl = document.getElementById('typewriter-text');
+  if (!textEl) return;
+
+  const phrases = [
+    "I build Web Applications...",
+    "I build AI Automations...",
+    "I build WhatsApp Chatbots...",
+    "I build Landing Pages that Convert..."
+  ];
+
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  const typeSpeed = 70;       // 60-80ms typing speed
+  const deleteSpeed = 35;     // 30-40ms deleting speed
+  const pauseDuration = 1500; // 1.5s pause on complete phrase
+
+  function tick() {
+    const currentPhrase = phrases[phraseIndex];
+
+    if (isDeleting) {
+      charIndex--;
+      textEl.textContent = currentPhrase.substring(0, charIndex);
+      if (charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(tick, 300);
+        return;
+      }
+      setTimeout(tick, deleteSpeed);
+    } else {
+      charIndex++;
+      textEl.textContent = currentPhrase.substring(0, charIndex);
+      if (charIndex === currentPhrase.length) {
+        isDeleting = true;
+        setTimeout(tick, pauseDuration);
+        return;
+      }
+      setTimeout(tick, typeSpeed);
+    }
+  }
+
+  // Initial startup after a short delay
+  setTimeout(tick, 400);
+}
+

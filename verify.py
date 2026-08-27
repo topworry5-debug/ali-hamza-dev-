@@ -76,6 +76,8 @@ def verify_portfolio():
         "Project WhatsApp Image": 'src="./assets/images/project-whatsapp.png"' in html,
         "Project WebApp Image": 'src="./assets/images/project-webapp.png"' in html,
         "Project Landing Image": 'src="./assets/images/project-landing.png"' in html,
+        "Hero Typewriter Element Present": 'id="typewriter-text"' in html and 'typewriter-cursor' in html,
+        "Tools Marquee Strip Present": 'tools-marquee-section' in html and 'OpenAI' in html and 'WhatsApp Business API' in html and 'Google Antigravity' in html,
         "Estimator Section Present": 'id="estimator"' in html,
         "How I Work Process Section Present": 'id="process"' in html,
         "Process 5 Steps Present": 'data-step="1"' in html and 'data-step="5"' in html and 'Discovery Call' in html and 'Launch &amp; Support' in html,

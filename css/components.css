@@ -59,6 +59,136 @@
   color: var(--accent-primary);
 }
 
+/* --------------------------------------------------------------------------
+   HERO TYPEWRITER ANIMATION
+   -------------------------------------------------------------------------- */
+.hero-typewriter-wrapper {
+  margin: 0.75rem 0 1.15rem 0;
+  min-height: 2.2rem;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2.3vw, 1.55rem);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.typewriter-text {
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  color: var(--accent-cyan);
+  font-weight: 300;
+  margin-left: 2px;
+  animation: blink-cursor 0.9s infinite step-end;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   TOOLS & TECHNOLOGIES MARQUEE STRIP
+   -------------------------------------------------------------------------- */
+.tools-marquee-section {
+  padding: 1.25rem 0 2.25rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.tools-marquee-header {
+  text-align: center;
+  margin-bottom: 1.1rem;
+}
+
+.tools-marquee-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.tools-marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.tools-marquee-track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  animation: marquee-scroll 24s linear infinite;
+}
+
+.tools-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.tools-marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-shrink: 0;
+}
+
+.tool-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 1.3rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  color: var(--text-secondary);
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.tool-badge:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-cyan);
+  background: var(--bg-surface-hover);
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.2);
+  transform: translateY(-2px);
+}
+
+.tool-icon {
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tool-name {
+  letter-spacing: -0.01em;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
 .nav-desktop {
   display: flex;
   align-items: center;
