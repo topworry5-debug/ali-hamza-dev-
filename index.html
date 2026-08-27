@@ -336,9 +336,10 @@
             
             <!-- Live Status & Region Pills -->
             <div class="hero-pill-group">
-              <div class="status-pill">
+              <!-- EDIT AVAILABILITY: Change slot count/status text below as needed -->
+              <div class="status-pill" title="Current freelance client capacity">
                 <span class="status-dot"></span>
-                <span>Available for New Projects</span>
+                <span>🟢 Currently available — 2 project slots open this month</span>
               </div>
               <div class="location-pill">
                 <span>📍 Pakistan (Global Remote)</span>
@@ -374,6 +375,12 @@
               <a href="#portfolio" class="btn btn-secondary btn-lg">
                 <span>View Demos</span>
               </a>
+            </div>
+
+            <!-- Fast Response Time Indicator Badge -->
+            <div class="hero-response-badge">
+              <span class="response-badge-icon">⚡</span>
+              <span>Average response time: <strong>Under 2 hours</strong></span>
             </div>
 
             <!-- Honest Capability & Focus Badges -->
@@ -652,7 +659,14 @@
       <div class="container">
         
         <div class="section-header">
-          <div class="launch-pricing-badge">🚀 Launch Pricing — Limited to my first 10 clients</div>
+          <div style="display: flex; gap: 0.75rem; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 0.85rem;">
+            <div class="launch-pricing-badge" style="margin-bottom: 0;">🚀 Launch Pricing — Limited to my first 10 clients</div>
+            <!-- TODO: Replace with actual PDF file link once brochure PDF is created and uploaded to assets/documents/services-brochure.pdf -->
+            <a href="#contact" class="brochure-download-btn" title="Request or download full services breakdown">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+              <span>📄 Download Services &amp; Pricing PDF</span>
+            </a>
+          </div>
           <span class="section-tag section-tag-cyan">Tailored Solutions</span>
           <h2 class="section-title">Specialized Services Built for <span class="gradient-text">Your Needs</span></h2>
           <p class="section-desc">From clean custom web interfaces to automated business bots — here is what I can build for your business.</p>
