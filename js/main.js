@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initSkillsFilter();
   initHeroTypewriter();
+  initInsightsAccordion();
 });
 
 /* --------------------------------------------------------------------------
@@ -340,4 +341,31 @@ function initHeroTypewriter() {
   // Initial startup after a short delay
   setTimeout(tick, 400);
 }
+
+/* --------------------------------------------------------------------------
+   11. INSIGHTS & RESOURCES ACCORDION TOGGLE
+   -------------------------------------------------------------------------- */
+function initInsightsAccordion() {
+  const expandButtons = document.querySelectorAll('.btn-expand-insight');
+
+  expandButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.insight-card');
+      if (!card) return;
+
+      const isExpanded = card.classList.contains('expanded');
+      
+      if (isExpanded) {
+        card.classList.remove('expanded');
+        btn.innerHTML = '<span>Read Article</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        card.classList.add('expanded');
+        btn.innerHTML = '<span>Collapse</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+}
+
 
