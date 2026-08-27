@@ -77,6 +77,8 @@ def verify_portfolio():
         "Project WebApp Image": 'src="./assets/images/project-webapp.png"' in html,
         "Project Landing Image": 'src="./assets/images/project-landing.png"' in html,
         "Hero Typewriter Element Present": 'id="typewriter-text"' in html and 'typewriter-cursor' in html,
+        "Page Load Preloader Present": 'id="site-preloader"' in html and 'preloader-logo' in html,
+        "Consultation Booking CTA & Calendly TODO": 'Book a Free 15-Min Consultation Call' in html and '<!-- TODO: Replace this WhatsApp link with an embedded Calendly' in html,
         "Tools Marquee Strip Present": 'tools-marquee-section' in html and 'OpenAI' in html and 'WhatsApp Business API' in html and 'Google Antigravity' in html,
         "Hero Availability Widget & Edit Comment": '<!-- EDIT AVAILABILITY:' in html and '🟢 Currently available — 2 project slots open this month' in html,
         "Hero Response Time Badge": 'Average response time:' in html and 'Under 2 hours' in html,

@@ -3,6 +3,9 @@
  * Handles Theme, Sticky Nav, Mobile Menu, Pakistan Clock, Scroll Reveal, FAQ & Contact Form
  */
 
+// Initialize preloader immediately on script execution for smooth splash experience
+initPreloader();
+
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initStickyHeader();
@@ -367,5 +370,32 @@ function initInsightsAccordion() {
     });
   });
 }
+
+/* --------------------------------------------------------------------------
+   12. PAGE LOAD PRELOADER CONTROLLER
+   -------------------------------------------------------------------------- */
+function initPreloader() {
+  const preloader = document.getElementById('site-preloader');
+  if (!preloader) return;
+
+  const hidePreloader = () => {
+    preloader.classList.add('fade-out');
+    setTimeout(() => {
+      preloader.style.display = 'none';
+    }, 450);
+  };
+
+  // Wait at least 500ms for smooth visual feel, or when window fully loads
+  const startTime = Date.now();
+  window.addEventListener('load', () => {
+    const elapsed = Date.now() - startTime;
+    const remaining = Math.max(0, 500 - elapsed);
+    setTimeout(hidePreloader, remaining);
+  });
+
+  // Safe fallback: never block user longer than 1.5 seconds even on slow networks
+  setTimeout(hidePreloader, 1500);
+}
+
 
 
