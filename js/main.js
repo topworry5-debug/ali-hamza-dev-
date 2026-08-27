@@ -7,8 +7,10 @@
 initPreloader();
 
 document.addEventListener('DOMContentLoaded', () => {
+  applySiteConfig();
   initThemeToggle();
   initStickyHeader();
+  initScrollProgressBar();
   initMobileMenu();
   initPakistanClock();
   initScrollReveal();
@@ -238,7 +240,9 @@ function initSkillsFilter() {
 function initContactForm() {
   const form = document.getElementById('contact-form');
   const feedback = document.getElementById('form-feedback');
-  const phone = '923072538314'; // Ali Hamza WhatsApp number
+  const phone = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.contact && SITE_CONFIG.contact.whatsappNumber)
+    ? SITE_CONFIG.contact.whatsappNumber
+    : '923072538314';
 
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -396,6 +400,125 @@ function initPreloader() {
   // Safe fallback: never block user longer than 1.5 seconds even on slow networks
   setTimeout(hidePreloader, 1500);
 }
+
+/* --------------------------------------------------------------------------
+   13. TOP SCROLL PROGRESS BAR
+   -------------------------------------------------------------------------- */
+function initScrollProgressBar() {
+  const progressBar = document.getElementById('scroll-progress-bar');
+  if (!progressBar) return;
+
+  let ticking = false;
+
+  const updateProgress = () => {
+    const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+    if (scrollTotal <= 0) {
+      progressBar.style.width = '0%';
+    } else {
+      const scrollProgress = Math.min(100, Math.max(0, (window.scrollY / scrollTotal) * 100));
+      progressBar.style.width = `${scrollProgress}%`;
+    }
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateProgress);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Initial call
+  updateProgress();
+}
+
+/* --------------------------------------------------------------------------
+   14. DYNAMIC CONFIG APPLIER (Reads from js/config.js)
+   -------------------------------------------------------------------------- */
+function applySiteConfig() {
+  if (typeof SITE_CONFIG === 'undefined') return;
+
+  const { contact, availability, pricing, social } = SITE_CONFIG;
+
+  // 1. Update Contact Information & WhatsApp Links
+  if (contact) {
+    if (contact.whatsappNumber) {
+      document.querySelectorAll('a[href^="https://wa.me/"]').forEach(link => {
+        try {
+          const url = new URL(link.href);
+          const textParam = url.searchParams.get('text');
+          link.href = `https://wa.me/${contact.whatsappNumber}${textParam ? `?text=${encodeURIComponent(textParam)}` : ''}`;
+        } catch (e) {
+          // Fallback if raw href
+        }
+      });
+    }
+
+    if (contact.whatsappDisplay) {
+      document.querySelectorAll('.contact-direct-value, [data-config="whatsapp-display"]').forEach(el => {
+        if (el.textContent.includes('+92') || el.dataset.config === 'whatsapp-display') {
+          el.textContent = contact.whatsappDisplay;
+        }
+      });
+    }
+
+    if (contact.email) {
+      document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+        link.href = `mailto:${contact.email}`;
+        if (link.textContent.includes('@')) {
+          link.textContent = contact.email;
+        }
+      });
+    }
+  }
+
+  // 2. Update Live Availability Status
+  if (availability) {
+    const statusPills = document.querySelectorAll('.status-pill');
+    statusPills.forEach(pill => {
+      const textSpan = pill.querySelector('span:not(.status-dot)');
+      if (textSpan && (textSpan.textContent.includes('available') || textSpan.textContent.includes('Currently') || textSpan.textContent.includes('slot'))) {
+        if (availability.status === 'available' && availability.slotsOpen > 0) {
+          textSpan.textContent = `🟢 Currently available — ${availability.slotsOpen} project slot${availability.slotsOpen > 1 ? 's' : ''} open this month`;
+        } else if (availability.status === 'busy' || availability.slotsOpen === 1) {
+          textSpan.textContent = `🟡 Limited capacity — 1 project slot remaining this month`;
+        } else {
+          textSpan.textContent = `🔴 Fully booked — Taking reservations for next month`;
+        }
+      }
+    });
+
+    // Response time badge
+    const responseBadge = document.querySelector('.hero-response-badge strong');
+    if (responseBadge && availability.responseTime) {
+      responseBadge.textContent = availability.responseTime;
+    }
+  }
+
+  // 3. Update Social Links (hide if empty)
+  if (social) {
+    const linkedinLinks = document.querySelectorAll('.social-link-linkedin');
+    linkedinLinks.forEach(link => {
+      if (social.linkedin) {
+        link.href = social.linkedin;
+        link.style.display = '';
+      } else {
+        link.style.display = 'none';
+      }
+    });
+
+    const githubLinks = document.querySelectorAll('.social-link-github');
+    githubLinks.forEach(link => {
+      if (social.github) {
+        link.href = social.github;
+        link.style.display = '';
+      } else {
+        link.style.display = 'none';
+      }
+    });
+  }
+}
+
 
 
 

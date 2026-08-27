@@ -101,8 +101,11 @@ function initCostEstimator() {
         : 'Standard inclusions only';
     }
 
-    // Build WhatsApp Pre-filled payload with real WhatsApp number
-    const phone = '923072538314'; // Ali Hamza Real WhatsApp number
+    // Dynamic WhatsApp destination phone from SITE_CONFIG
+    const phone = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.contact && SITE_CONFIG.contact.whatsappNumber)
+      ? SITE_CONFIG.contact.whatsappNumber
+      : '923072538314';
+
     const waMessage = 
 `👋 Hello Ali Hamza! I configured a custom project estimate on your portfolio website (Launch Pricing):
 

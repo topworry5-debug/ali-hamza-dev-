@@ -266,7 +266,7 @@ code, .code-tag {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  display: inline-block;
+  color: var(--accent-primary);
 }
 
 /* --------------------------------------------------------------------------
@@ -279,68 +279,71 @@ code, .code-tag {
   margin-right: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  position: relative;
-  z-index: 1;
 }
 
 .section {
-  padding-top: clamp(4.5rem, 8vw, 7.5rem);
-  padding-bottom: clamp(4.5rem, 8vw, 7.5rem);
+  padding-top: clamp(4.5rem, 8vw, 7rem);
+  padding-bottom: clamp(4.5rem, 8vw, 7rem);
   position: relative;
-  z-index: 1;
 }
 
 .section-header {
   text-align: center;
   max-width: 760px;
-  margin: 0 auto clamp(2.5rem, 5vw, 4rem) auto;
-}
-
-.section-header.text-left {
-  text-align: left;
-  margin-left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
 
 .section-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 1rem;
-  border-radius: var(--radius-full);
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid var(--accent-primary);
-  color: var(--accent-primary);
+  display: inline-block;
   font-family: var(--font-mono);
   font-size: 0.82rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
+  color: var(--accent-primary);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
   margin-bottom: 1rem;
 }
 
 .section-tag-cyan {
-  background: rgba(6, 182, 212, 0.1);
-  border-color: var(--accent-cyan);
   color: var(--accent-cyan);
+  background: rgba(6, 182, 212, 0.1);
+  border-color: rgba(6, 182, 212, 0.25);
 }
 
 .section-tag-violet {
-  background: rgba(139, 92, 246, 0.1);
-  border-color: var(--accent-violet);
   color: var(--accent-violet);
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.25);
 }
 
 .section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
   margin-bottom: 1rem;
+  letter-spacing: -0.02em;
 }
 
 .section-desc {
-  font-size: 1.15rem;
   color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.gradient-text {
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
 }
 
 /* --------------------------------------------------------------------------
-   5. BUTTONS & UI CONTROLS
+   5. BUTTONS & UI CONTROLS (ENHANCED MICRO-INTERACTIONS)
    -------------------------------------------------------------------------- */
 .btn {
   display: inline-flex;
@@ -356,10 +359,14 @@ code, .code-tag {
   cursor: pointer;
   text-align: center;
   white-space: nowrap;
-  transition: all var(--transition-normal);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   position: relative;
   overflow: hidden;
   text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px) scale(1.03);
 }
 
 .btn:active {
@@ -374,8 +381,8 @@ code, .code-tag {
 }
 
 .btn-primary:hover {
-  box-shadow: 0 8px 30px var(--accent-cyan-glow);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--accent-cyan-glow), 0 0 20px var(--accent-primary-glow);
+  transform: translateY(-2px) scale(1.03);
   color: #070B12;
 }
 
@@ -390,7 +397,8 @@ code, .code-tag {
   background: var(--bg-surface-hover);
   border-color: var(--accent-cyan);
   color: var(--text-primary);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(6, 182, 212, 0.2);
+  transform: translateY(-2px) scale(1.03);
 }
 
 .btn-whatsapp {
@@ -403,8 +411,8 @@ code, .code-tag {
 .btn-whatsapp:hover {
   background: var(--accent-whatsapp-hover);
   color: #0B1319;
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
+  transform: translateY(-2px) scale(1.03);
 }
 
 .btn-outline-primary {
@@ -416,6 +424,8 @@ code, .code-tag {
 .btn-outline-primary:hover {
   background: var(--accent-primary);
   color: #070B12;
+  box-shadow: 0 6px 20px var(--accent-primary-glow);
+  transform: translateY(-2px) scale(1.03);
 }
 
 .btn-sm {
@@ -441,7 +451,7 @@ code, .code-tag {
 }
 
 /* --------------------------------------------------------------------------
-   6. GLASS CARDS & REVEAL UTILITIES
+   6. GLASS CARDS & REVEAL UTILITIES (ENHANCED ELEVATION)
    -------------------------------------------------------------------------- */
 .glass-card {
   background: var(--bg-surface);
@@ -450,14 +460,14 @@ code, .code-tag {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   padding: 2rem;
-  transition: all var(--transition-normal);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
   position: relative;
 }
 
 .glass-card:hover {
   border-color: var(--border-card-hover);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), 0 0 28px rgba(6, 182, 212, 0.16);
+  transform: translateY(-6px);
 }
 
 /* Scroll Reveal States */
