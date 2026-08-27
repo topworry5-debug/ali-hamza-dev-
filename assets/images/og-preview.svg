@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" width="100%" height="100%">
+  <defs>
+    <radialGradient id="ogGlow" cx="80%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#06B6D4" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0B0F19" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ogGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B12"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="ogAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="50%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <clipPath id="circleClip">
+      <circle cx="950" cy="290" r="170" />
+    </clipPath>
+    <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#ogGrad)"/>
+  <circle cx="950" cy="290" r="320" fill="url(#ogGlow)"/>
+
+  <!-- Border -->
+  <rect width="1160" height="590" x="20" y="20" rx="20" fill="none" stroke="#1E293B" stroke-width="2"/>
+
+  <!-- Logo Pill -->
+  <g transform="translate(70, 70)">
+    <rect width="230" height="42" rx="21" fill="#111827" stroke="#10B981" stroke-width="1.5"/>
+    <circle cx="24" cy="21" r="5" fill="#10B981"/>
+    <text x="42" y="26" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="14">ALI HAMZA PORTFOLIO</text>
+  </g>
+
+  <!-- Left Content: Headline & Bio -->
+  <g transform="translate(70, 180)">
+    <text x="0" y="0" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="46">AI-Assisted Developer &amp;</text>
+    <text x="0" y="60" fill="url(#ogAccent)" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="46">Digital Solutions Specialist</text>
+    
+    <text x="0" y="115" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="20">Web Development • AI Automation • WhatsApp Bots</text>
+    <text x="0" y="145" fill="#64748B" font-family="system-ui, -apple-system, sans-serif" font-size="16">📍 Pakistan • Available for Freelance &amp; Contract Work</text>
+  </g>
+
+  <!-- Right Profile Photo with Glowing Ring -->
+  <g>
+    <!-- Outer Cyan/Emerald Glow Ring -->
+    <circle cx="950" cy="290" r="185" fill="none" stroke="url(#ogAccent)" stroke-width="5" filter="url(#glowFilter)" opacity="0.8"/>
+    <circle cx="950" cy="290" r="175" fill="#111827" stroke="#10B981" stroke-width="3"/>
+    
+    <!-- Profile Photo Image -->
+    <image xlink:href="profile-photo.jpg" href="profile-photo.jpg" x="780" y="120" width="340" height="340" preserveAspectRatio="xMidYMid slice" clip-path="url(#circleClip)"/>
+    
+    <!-- Status Pill Over Photo -->
+    <g transform="translate(865, 435)">
+      <rect width="170" height="36" rx="18" fill="#064E3B" stroke="#34D399" stroke-width="1.5"/>
+      <circle cx="20" cy="18" r="4.5" fill="#34D399"/>
+      <text x="34" y="23" fill="#ECFDF5" font-family="system-ui, sans-serif" font-weight="700" font-size="12">AVAILABLE NOW</text>
+    </g>
+  </g>
+
+  <!-- Feature Cards / Badges at bottom left -->
+  <g transform="translate(70, 435)">
+    <!-- Badge 1 -->
+    <rect width="210" height="75" rx="12" fill="#111827" stroke="#1E293B" stroke-width="1.5"/>
+    <text x="20" y="32" fill="#10B981" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="14">⚡ Web Apps</text>
+    <text x="20" y="54" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="12">High-speed, responsive</text>
+
+    <!-- Badge 2 -->
+    <rect x="225" width="220" height="75" rx="12" fill="#111827" stroke="#1E293B" stroke-width="1.5"/>
+    <text x="245" y="32" fill="#06B6D4" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="14">🧠 AI Workflows</text>
+    <text x="245" y="54" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="12">n8n, Make &amp; OpenAI</text>
+
+    <!-- Badge 3 -->
+    <rect x="460" width="220" height="75" rx="12" fill="#111827" stroke="#1E293B" stroke-width="1.5"/>
+    <text x="480" y="32" fill="#8B5CF6" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="14">💬 WhatsApp Bots</text>
+    <text x="480" y="54" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="12">24/7 Automated Leads</text>
+  </g>
+</svg>

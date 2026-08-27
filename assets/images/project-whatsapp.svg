@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="waBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1319"/>
+      <stop offset="100%" stop-color="#111B21"/>
+    </linearGradient>
+    <linearGradient id="waGreenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#25D366"/>
+      <stop offset="100%" stop-color="#128C7E"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="16" fill="url(#waBg)"/>
+  <rect width="796" height="496" x="2" y="2" rx="14" fill="none" stroke="#2A3942" stroke-width="2"/>
+
+  <!-- Top Bar -->
+  <rect width="800" height="48" fill="#202C33" rx="16 16 0 0"/>
+  <circle cx="30" cy="24" r="6" fill="#EF4444"/>
+  <circle cx="48" cy="24" r="6" fill="#F59E0B"/>
+  <circle cx="66" cy="24" r="6" fill="#10B981"/>
+  
+  <rect x="100" y="10" width="28" height="28" rx="14" fill="url(#waGreenGrad)"/>
+  <!-- WhatsApp Phone icon -->
+  <path d="M110 18 C108 20, 108 23, 110 25 C112 27, 115 28, 117 26 L119 28 C116 30, 111 29, 107 24 C104 20, 104 15, 108 13 Z" fill="#FFF"/>
+  <text x="140" y="28" fill="#E9EDEF" font-family="system-ui, sans-serif" font-size="13" font-weight="600">Enterprise WhatsApp AI Agent • 24/7 Live Lead Routing</text>
+  
+  <!-- Status Badge -->
+  <rect x="670" y="14" width="100" height="22" rx="11" fill="#005C4B"/>
+  <circle cx="682" cy="25" r="4" fill="#25D366"/>
+  <text x="692" y="29" fill="#E9EDEF" font-family="system-ui, sans-serif" font-size="10" font-weight="700">ONLINE 24/7</text>
+
+  <!-- Chat Screen Simulated Layout -->
+  <!-- Left: Conversation Flow -->
+  <!-- Customer message -->
+  <g transform="translate(40, 80)">
+    <rect width="320" height="60" rx="12" fill="#202C33"/>
+    <text x="18" y="26" fill="#E9EDEF" font-family="system-ui, sans-serif" font-size="13">"Hi! I need a custom CRM portal for</text>
+    <text x="18" y="46" fill="#E9EDEF" font-family="system-ui, sans-serif" font-size="13">my real estate firm in Pakistan."</text>
+    <text x="275" y="52" fill="#8696A0" font-family="system-ui, sans-serif" font-size="10">10:42 AM</text>
+  </g>
+
+  <!-- AI Bot Response -->
+  <g transform="translate(140, 155)">
+    <rect width="340" height="110" rx="12" fill="#005C4B" stroke="#25D366" stroke-width="1"/>
+    <text x="18" y="24" fill="#25D366" font-family="system-ui, sans-serif" font-size="11" font-weight="700">🤖 AI ASSISTANT (Ali Hamza Bot)</text>
+    <text x="18" y="46" fill="#E9EDEF" font-family="system-ui, sans-serif" font-size="12">"Hello! We specialize in custom CRM portals</text>
+    <text x="18" y="66" fill="#E9EDEF" font-family="system-ui, sans-serif" font-size="12">with WhatsApp API & automated lead tracking.</text>
+    <text x="18" y="88" fill="#E9EDEF" font-family="system-ui, sans-serif" font-size="12">Shall I schedule a 15-min discovery call?"</text>
+    <text x="295" y="102" fill="#8696A0" font-family="system-ui, sans-serif" font-size="10">10:42 AM ✓✓</text>
+  </g>
+
+  <!-- Customer quick reply button -->
+  <g transform="translate(140, 275)">
+    <rect width="200" height="34" rx="8" fill="#202C33" stroke="#00A884" stroke-width="1.5"/>
+    <text x="100" y="22" fill="#00A884" font-family="system-ui, sans-serif" font-size="12" font-weight="600" text-anchor="middle">📅 Yes, Book a Demo Call</text>
+  </g>
+
+  <!-- Right: Real-time Analytics & CRM Integration Panel -->
+  <g transform="translate(520, 80)">
+    <rect width="240" height="380" rx="12" fill="#182229" stroke="#2A3942" stroke-width="1.5"/>
+    <rect width="240" height="36" rx="12 12 0 0" fill="#202C33"/>
+    <text x="18" y="23" fill="#E9EDEF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">CRM Live Telemetry</text>
+
+    <!-- Stat 1 -->
+    <rect x="16" y="55" width="208" height="65" rx="8" fill="#111B21"/>
+    <text x="28" y="78" fill="#8696A0" font-family="system-ui, sans-serif" font-size="11">Lead Response Speed</text>
+    <text x="28" y="105" fill="#25D366" font-family="system-ui, sans-serif" font-size="20" font-weight="800">&lt; 1.2s</text>
+    <text x="135" y="104" fill="#8696A0" font-family="system-ui, sans-serif" font-size="11">⚡ Instant</text>
+
+    <!-- Stat 2 -->
+    <rect x="16" y="130" width="208" height="65" rx="8" fill="#111B21"/>
+    <text x="28" y="153" fill="#8696A0" font-family="system-ui, sans-serif" font-size="11">Conversion Rate</text>
+    <text x="28" y="180" fill="#06B6D4" font-family="system-ui, sans-serif" font-size="20" font-weight="800">+42.8%</text>
+    <text x="135" y="179" fill="#10B981" font-family="system-ui, sans-serif" font-size="11">▲ vs Web Forms</text>
+
+    <!-- Integration Badges -->
+    <text x="18" y="222" fill="#E9EDEF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Connected Hubs:</text>
+    <rect x="16" y="235" width="98" height="30" rx="6" fill="#202C33"/>
+    <text x="65" y="255" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">HubSpot</text>
+
+    <rect x="124" y="235" width="100" height="30" rx="6" fill="#202C33"/>
+    <text x="174" y="255" fill="#A78BFA" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">OpenAI GPT</text>
+
+    <rect x="16" y="275" width="98" height="30" rx="6" fill="#202C33"/>
+    <text x="65" y="295" fill="#34D399" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Google Sheets</text>
+
+    <rect x="124" y="275" width="100" height="30" rx="6" fill="#202C33"/>
+    <text x="174" y="295" fill="#F472B6" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Stripe / Webhook</text>
+
+    <!-- Bot Auto Sync indicator -->
+    <rect x="16" y="325" width="208" height="40" rx="6" fill="#005C4B"/>
+    <text x="120" y="350" fill="#E9EDEF" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">⚡ Auto-sync Active</text>
+  </g>
+
+  <!-- Bottom CTA bar -->
+  <g transform="translate(40, 395)">
+    <rect width="440" height="65" rx="10" fill="#182229" stroke="#2A3942" stroke-width="1"/>
+    <text x="20" y="28" fill="#E9EDEF" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Enterprise Meta WhatsApp Cloud API Compliant</text>
+    <text x="20" y="48" fill="#8696A0" font-family="system-ui, sans-serif" font-size="11">Zero latency • End-to-End Encryption • Custom Webhooks</text>
+  </g>
+</svg>

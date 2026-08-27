@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="webBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19"/>
+      <stop offset="100%" stop-color="#1E1B4B"/>
+    </linearGradient>
+    <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="glowLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="50%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" rx="16" fill="url(#webBg)"/>
+  <rect width="796" height="496" x="2" y="2" rx="14" fill="none" stroke="#312E81" stroke-width="2"/>
+
+  <!-- Browser Chrome -->
+  <rect width="800" height="44" fill="#0F172A" rx="16 16 0 0"/>
+  <circle cx="30" cy="22" r="6" fill="#EF4444"/>
+  <circle cx="48" cy="22" r="6" fill="#F59E0B"/>
+  <circle cx="66" cy="22" r="6" fill="#10B981"/>
+  
+  <rect x="120" y="10" width="400" height="24" rx="6" fill="#1E293B"/>
+  <text x="140" y="26" fill="#94A3B8" font-family="monospace" font-size="11">https://analytics.enterprise-saas.app/dashboard</text>
+
+  <!-- Left Sidebar -->
+  <g transform="translate(20, 60)">
+    <rect width="160" height="420" rx="10" fill="#0F172A" stroke="#1E293B" stroke-width="1"/>
+    <text x="20" y="35" fill="#38BDF8" font-family="system-ui, sans-serif" font-weight="800" font-size="14">⚡ NEXUS CORE</text>
+    
+    <rect x="12" y="60" width="136" height="32" rx="6" fill="#1E293B" stroke="#06B6D4" stroke-width="1"/>
+    <text x="30" y="81" fill="#38BDF8" font-family="system-ui, sans-serif" font-weight="600" font-size="12">📊 Analytics</text>
+
+    <text x="30" y="125" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">⚡ Automations</text>
+    <text x="30" y="165" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">👥 Customers</text>
+    <text x="30" y="205" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">💳 Revenue</text>
+    <text x="30" y="245" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">⚙️ Settings</text>
+
+    <rect x="12" y="350" width="136" height="50" rx="8" fill="#1E1B4B" stroke="#6366F1" stroke-width="1"/>
+    <text x="22" y="372" fill="#C7D2FE" font-family="system-ui, sans-serif" font-weight="700" font-size="11">🚀 Pro Tier</text>
+    <text x="22" y="388" fill="#818CF8" font-family="system-ui, sans-serif" font-size="10">99.99% Cloud Uptime</text>
+  </g>
+
+  <!-- Top Metric Cards -->
+  <!-- Card 1 -->
+  <g transform="translate(200, 60)">
+    <rect width="180" height="90" rx="10" fill="#0F172A" stroke="#1E293B" stroke-width="1"/>
+    <text x="18" y="28" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Total Platform MRR</text>
+    <text x="18" y="58" fill="#F8FAFC" font-family="system-ui, sans-serif" font-weight="800" font-size="22">$48,250</text>
+    <text x="18" y="78" fill="#10B981" font-family="system-ui, sans-serif" font-weight="600" font-size="11">▲ +28.4% this month</text>
+  </g>
+
+  <!-- Card 2 -->
+  <g transform="translate(395, 60)">
+    <rect width="180" height="90" rx="10" fill="#0F172A" stroke="#1E293B" stroke-width="1"/>
+    <text x="18" y="28" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Active API Webhooks</text>
+    <text x="18" y="58" fill="#06B6D4" font-family="system-ui, sans-serif" font-weight="800" font-size="22">1,842,090</text>
+    <text x="18" y="78" fill="#38BDF8" font-family="system-ui, sans-serif" font-weight="600" font-size="11">⚡ Avg Latency 14ms</text>
+  </g>
+
+  <!-- Card 3 -->
+  <g transform="translate(590, 60)">
+    <rect width="190" height="90" rx="10" fill="#0F172A" stroke="#1E293B" stroke-width="1"/>
+    <text x="18" y="28" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">AI Assistant Load</text>
+    <text x="18" y="58" fill="#A855F7" font-family="system-ui, sans-serif" font-weight="800" font-size="22">99.4%</text>
+    <text x="18" y="78" fill="#C084FC" font-family="system-ui, sans-serif" font-weight="600" font-size="11">Autonomous Res</text>
+  </g>
+
+  <!-- Main Chart Section -->
+  <g transform="translate(200, 165)">
+    <rect width="580" height="315" rx="10" fill="#0F172A" stroke="#1E293B" stroke-width="1"/>
+    <text x="20" y="32" fill="#F8FAFC" font-family="system-ui, sans-serif" font-weight="700" font-size="14">Real-Time Traffic & Conversion Telemetry</text>
+    <text x="480" y="32" fill="#10B981" font-family="system-ui, sans-serif" font-size="12" font-weight="700">● LIVE FEED</text>
+
+    <!-- Chart Grid Lines -->
+    <line x1="30" y1="80" x2="550" y2="80" stroke="#1E293B" stroke-dasharray="4 4"/>
+    <line x1="30" y1="130" x2="550" y2="130" stroke="#1E293B" stroke-dasharray="4 4"/>
+    <line x1="30" y1="180" x2="550" y2="180" stroke="#1E293B" stroke-width="1"/>
+    <line x1="30" y1="230" x2="550" y2="230" stroke="#1E293B" stroke-dasharray="4 4"/>
+
+    <!-- Area Fill Under Curve -->
+    <path d="M 40 230 Q 120 180, 200 120 T 360 80 T 480 50 L 540 40 L 540 250 L 40 250 Z" fill="url(#chartGrad)"/>
+    
+    <!-- Glowing Curve Line -->
+    <path d="M 40 230 Q 120 180, 200 120 T 360 80 T 480 50 L 540 40" fill="none" stroke="url(#glowLine)" stroke-width="4"/>
+
+    <!-- Pulse Points on Line -->
+    <circle cx="200" cy="120" r="5" fill="#06B6D4" stroke="#FFF" stroke-width="2"/>
+    <circle cx="360" cy="80" r="5" fill="#8B5CF6" stroke="#FFF" stroke-width="2"/>
+    <circle cx="540" cy="40" r="6" fill="#10B981" stroke="#FFF" stroke-width="2"/>
+
+    <!-- X-Axis Labels -->
+    <text x="40" y="275" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">00:00</text>
+    <text x="140" y="275" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">04:00</text>
+    <text x="240" y="275" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">08:00</text>
+    <text x="340" y="275" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">12:00</text>
+    <text x="440" y="275" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">16:00</text>
+    <text x="520" y="275" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">20:00</text>
+  </g>
+</svg>
